@@ -1,1 +1,1 @@
-# MongoDB-Jero-to-Hero
+# MongoDB-Simplified
