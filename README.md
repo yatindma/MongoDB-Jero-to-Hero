@@ -11,11 +11,11 @@ This repository contains code examples for learning MongoDB.
 
 ## Installation
 
-- Setup-steps-mac.txt: Contains the steps for setting up MongoDB on macOS.
+- `Setup-steps-mac.txt`: Contains the steps for setting up MongoDB on macOS.
 
 ## Cheat-Sheet
 
--  cheat-sheet.txt: A cheat sheet containing important basic questions and answers about MongoDB.
+-  `cheat-sheet.txt`: A cheat sheet containing important basic questions and answers about MongoDB.
 
 ## Examples
 
