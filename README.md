@@ -9,6 +9,14 @@ This repository contains code examples for learning MongoDB.
 3. Run Python code examples: `python <filename>.py`
 4. Follow the comments in the code for each example to understand the MongoDB operations.
 
+## Installation
+
+- Setup-steps-mac.txt: Contains the steps for setting up MongoDB on macOS.
+
+## Cheat-Sheet
+
+-  cheat-sheet.txt: A cheat sheet containing important basic questions and answers about MongoDB.
+
 ## Examples
 
 - `basic_operation.py`: Shows basic operations like connecting to MongoDB, creating a database and collections, inserting documents, querying documents, updating documents, deleting documents, and validating collections.
