@@ -1,0 +1,109 @@
+
+1.	What is MongoDB, and how does it differ from traditional SQL databases?
+Answer: MongoDB is a NoSQL document-based database management system that uses a flexible document-based data model, where each document can have its own structure. It differs from traditional SQL databases in that it does not rely on tables and fixed schema, but rather on flexible JSON-like documents. MongoDB uses JavaScript to handle the queries, which gives it an upper hand in handling different types of data.
+
+2.	How do you create a collection in MongoDB, and what are some key considerations when designing collections?
+Answer: To create a collection in MongoDB, you need to first create a database and then use the db.createCollection() method. When designing collections, some key considerations include choosing meaningful names, defining the structure of documents, and choosing appropriate data types and indexes to optimize query performance.
+
+3.	How do you insert, update, and delete documents in MongoDB using the Mongo shell or a programming language driver?
+Answer: Insertion:
+•	To insert multiple documents, use the insert_many() method: collection.insert_many([param1, param2])
+•	To insert a single document, use the insert_one() method: collection.insert_one(param1)
+Deletion:
+•	To remove a single document, use the remove_one() method: collection.remove_one({"item": "item description"})
+•	To remove multiple documents, use the remove_many() method: collection.remove_many({"item": "item description"})
+Update:
+•	To update a single document, use the update_one() method: collection.update_one({"item": "item description"}, {"$set": {"item": "new item description"}})
+•	To update multiple documents, use the update_many() method: collection.update_many({"item": "item description"}, {"$set": {"item": "new item description"}})
+
+4.	What are some common query operators and aggregation functions used in MongoDB?
+Answer: Query Operators:
+•	$eq (equal)
+•	$gt (greater than)
+•	$lt (less than)
+•	$ne (not equal)
+•	$in (in)
+•	$or
+Aggregation Operator:
+•	$sum
+•	$avg
+•	$min
+•	$max
+•	$count
+•	$group
+collection.aggregate([
+{
+	$group:{
+		_id: null
+		averageScore: {$avg: “$age”}
+		}
+}])
+Why _id Is null – It’ll group all the data together.
+
+collection.aggregate([
+{
+	$group:{
+		_id: null
+		maxAge: {$max: “$age”}
+		}
+}])
+
+
+
+5.	How does MongoDB handle scalability and high availability, and what are some best practices for optimizing performance?
+Answer: MongoDB handles scalability and high availability through sharding, replication, and auto-electing primary. Some best practices for optimizing performance include indexing, query optimization, and efficient data modeling.
+
+6.	How do you set up and configure MongoDB security features, such as authentication, authorization, and encryption?
+Answer: MongoDB provides built-in features for authentication and authorization, and encryption can be implemented using third-party tools or MongoDB's own encryption at rest feature. To set up security features, you can use the mongo shell to create users and roles and set permissions.
+
+7.	How do you diagnose and troubleshoot common issues in MongoDB, such as slow queries or replica set failures?
+Answer: To diagnose and troubleshoot common issues in MongoDB, you can use the built-in profiling feature, which can help identify slow queries. You can also monitor the health of replica sets using the rs.status() command and analyze logs for any errors or warnings.
+
+8.	How does MongoDB handle data consistency and durability, and what are some strategies for backup and disaster recovery?
+Answer: Acknowledgement
+a.	result = collection.insert_one(post_1, w=1)
+b.	result = collection.insert_one(post_1, w='majority')
+These will return the acknowledgement that data is saved
+	Point in time recovery using Journaling
+a.	It tells you when the data was backed up and you can only do the recovery after that – and it uses journal
+b.	Journaling is auto enabled in the MongoDB, you can change it using the configuration command.
+
+
+9.	How does MongoDB support geospatial data and indexing, and what are some use cases for location-based queries?
+Answer: MongoDB supports geospatial data and indexing by plotting data on a 2dsphere and enabling location-based queries such as finding nearby points within a specified radius. Use cases for location-based queries include finding property prices from a specific location or querying for devices within a certain radius.
+# Create a 2dsphere index on the "location" field
+db.devices.createIndex({ "location": "2dsphere" })
+
+# Query devices within a certain radius of a specific location
+db.devices.find({
+    "location": {
+        "$near": {
+            "$geometry": {
+                "type": "Point",
+                "coordinates": [longitude, latitude]
+            },
+            "$maxDistance": radius
+        }
+    }
+})
+
+
+10.	What are the different data types supported by MongoDB and how do you choose the right data type for your application?
+Answer: MongoDB supports data types such as String, Integer, Double, Boolean, Date, Object ID, Array, Null, Timestamp, Decimal128, Minkey, and MaxKey. To choose the right data type, consider the type of operation you need to perform and choose a data type that best suits the needs of your application.
+
+11.	What are indexes in MongoDB, and how do you create and use them to improve query performance?
+Answer: Indexes in MongoDB are used to improve query performance by providing a way to quickly access data in a collection. To create an index, use the createIndex() method. Indexes can be used to speed up queries by allowing MongoDB to quickly find and retrieve data without having to scan the entire collection.
+
+12.	How does MongoDB handle sharding and replication for scaling and high availability?
+Answer: MongoDB handles scaling and high availability through sharding, which involves partitioning data across multiple clusters, and replication, which involves creating multiple copies of data to ensure availability. Sharding can be done using location-based or hashing-based methods, and replica sets can be used for redundancy and failover.
+
+13.	What are some of the advanced aggregation and query features supported by MongoDB?
+Answer: MongoDB supports advanced aggregation and query features such as grouping and aggregation, MapReduce for processing large amounts of data, text search, geospatial indexing, and projections to retrieve specific fields from a collection.
+
+14.	How does MongoDB handle transactions and data consistency?
+Answer: MongoDB supports transactions and ensures data consistency through its ACID properties, locking, and snapshot mechanisms. Locking involves backing up data and editing it, while snapshots create a copy of data to edit and only write to the database if the copy succeeds.
+
+15.	What are some of the best practices for backup and disaster recovery in MongoDB?
+Answer: Best practices for backup and disaster recovery in MongoDB include using MongoDB backup, replication for redundancy, automated backups using third-party tools, and monitoring to detect and resolve issues before they become critical.
+
+# Done with Research + rephrase with chatGPT

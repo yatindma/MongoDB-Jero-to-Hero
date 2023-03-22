@@ -1,0 +1,31 @@
+
+xcode-select –install
+
+
+1.	Install Homebrew
+
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+2.	Set Homebrew to path
+
+	 PATH=/opt/homebrew/bin:$PATH
+
+3.	Install Mongo DB (Install MongoDB Community Edition on macOS — MongoDB Manual)
+
+brew update
+brew tap mongodb/brew
+
+brew install mongodb-community@6.0
+
+4.	Start MongoDB in background (Start/Stop/Restart)
+
+brew services start mongodb-community@6.0
+brew services stop mongodb-community@6.0
+brew services restart mongodb-community@6.0
+
+5.	Download MongoDB Compass (GUI)
+
+MongoDB Compass | MongoDB
+
+6.	  Use Python to connect the DB
+a.	Code is in basic_operation.py
